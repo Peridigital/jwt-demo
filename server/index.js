@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken')
 const app = express()
 const port = 3001
 
-// This is our secret. It will be used to encrpyt and verify our JWTs.
-// The security our information depends on this being hidden, so you don't want to push this to github.
+// This is our secret. It will be used to encrypt and verify our JWTs.
+// The security of our information depends on this being hidden, so you don't want to push this to github.
 // But for this example we're just going to have it in the open.
 const secret = "This is a secret"
 
@@ -52,7 +52,7 @@ var user = {
 
 app.post('/api/login', function (req, res) {
     // Here we are checking to see if the username and password we were sent in the body is the same as our hard-code user
-    // Normally, this is where you'd query your database, but for this example we're just using hard coded data
+    // Normally, this is where you would query your database, but for this example we're just using hard coded data
     if(req.body.username === user.username && req.body.password === user.password) {
         // if the username and password matches, we generate a new JWT
         // the .sign method takes in a payload to encode, and the secret by which we want to encode it. We'll have to use this same secret to verify it
